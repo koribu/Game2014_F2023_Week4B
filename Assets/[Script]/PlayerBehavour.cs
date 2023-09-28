@@ -17,6 +17,8 @@ public class PlayerBehavour : MonoBehaviour
     [SerializeField]
     bool _isMobilePlatform = false;
 
+    GameController _gameController;
+
         // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +26,8 @@ public class PlayerBehavour : MonoBehaviour
 
         _isMobilePlatform = Application.platform == RuntimePlatform.Android ||
                             Application.platform == RuntimePlatform.IPhonePlayer;
+
+        _gameController = FindObjectOfType<GameController>();
     }
 
     // Update is called once per frame
@@ -93,6 +97,7 @@ public class PlayerBehavour : MonoBehaviour
     {
         if(collision.CompareTag("Enemy"))
         {
+            _gameController.ChangeScore(7);
             Debug.Log("I Got HIT!!!");
         }
     }

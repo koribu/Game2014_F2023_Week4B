@@ -13,10 +13,22 @@ public class GameController : MonoBehaviour
 
     [SerializeField]
     TextMeshProUGUI _scoreText;
+
+    [SerializeField]
+    [Range(0,10)]
+    int _enemyNumber;
+
+    GameObject _enemyPrefab;
     // Start is called before the first frame update
     void Start()
     {
-        
+        _enemyPrefab = Resources.Load<GameObject>("Prefabs/Enemy");
+        GameObject enemyParent = GameObject.Find("Enemies");
+        for(int i = 0; i < _enemyNumber; i++)
+        {
+
+            Instantiate(_enemyPrefab,enemyParent.transform);
+        }
     }
 
     // Update is called once per frame
