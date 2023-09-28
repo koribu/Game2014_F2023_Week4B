@@ -37,6 +37,12 @@ public class EnemyBehavior : MonoBehaviour
 
     void Reset()
     {
+        Color[] _colorList = { Color.blue, Color.green, Color.red, Color.yellow, Color.white, Color.cyan, Color.magenta };
+
+        Color randomColor = _colorList[Random.Range(0, _colorList.Length - 1)];
+
+        GetComponent<SpriteRenderer>().color = randomColor;
+
         _verticalSpeed = Random.Range(_speedRange.x, _speedRange.y);
         _horizontalSpeed = Random.Range(_speedRange.x, _speedRange.y);
         transform.position = new Vector2(Random.Range(_horizontalBoundries.min, _horizontalBoundries.max), _verticalBoundries.max);
