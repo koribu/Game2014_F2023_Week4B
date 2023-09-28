@@ -675,7 +675,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _score: 0
   _scoreText: {fileID: 255324716}
-  _enemyNumber: 10
+  _enemyNumber: 5
 --- !u!4 &856483235
 Transform:
   m_ObjectHideFlags: 0

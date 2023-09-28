@@ -19,16 +19,23 @@ public class GameController : MonoBehaviour
     int _enemyNumber;
 
     GameObject _enemyPrefab;
+
+    float _seconds = 0;
+    int _timer = 0;
+
+    GameObject _enemyParent;
     // Start is called before the first frame update
     void Start()
     {
         _enemyPrefab = Resources.Load<GameObject>("Prefabs/Enemy");
-        GameObject enemyParent = GameObject.Find("Enemies");
+        _enemyParent = GameObject.Find("Enemies");
         for(int i = 0; i < _enemyNumber; i++)
         {
 
-            Instantiate(_enemyPrefab,enemyParent.transform);
+            Instantiate(_enemyPrefab, _enemyParent.transform);
         }
+
+        _timer = Random.Range(5, 10);
     }
 
     // Update is called once per frame
@@ -36,6 +43,15 @@ public class GameController : MonoBehaviour
     {
         if (_score != _previousScore)
             UpdateScoreUI();
+
+/*        _seconds += Time.deltaTime;    // Timer enemy spawn system
+
+        if(_seconds > _timer)
+        {
+            _seconds = 0;
+            Instantiate(_enemyPrefab, _enemyParent.transform);
+        }*/
+
     }
 
     public void ChangeScore(int scoreChangingAmount)

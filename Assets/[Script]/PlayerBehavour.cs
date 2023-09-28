@@ -98,6 +98,7 @@ public class PlayerBehavour : MonoBehaviour
         if(collision.CompareTag("Enemy"))
         {
             _gameController.ChangeScore(7);
+            collision.gameObject.GetComponent<EnemyBehavior>().DyingSequence();
             Debug.Log("I Got HIT!!!");
         }
     }
